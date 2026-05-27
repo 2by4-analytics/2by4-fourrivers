@@ -38,6 +38,21 @@ export const photos: Photo[] = [
     category: "Concrete",
   },
   {
+    src: "/gallery/crane1.jpg",
+    alt: "Four Rivers crew finishing a large concrete slab at dusk with a concrete pump truck near Paducah, KY",
+    category: "Concrete",
+  },
+  {
+    src: "/gallery/crane2.jpg",
+    alt: "Concrete pump truck and crew placing a large slab on a prepared gravel base in Western Kentucky",
+    category: "Concrete",
+  },
+  {
+    src: "/gallery/walkway.jpg",
+    alt: "Exposed-aggregate concrete walkway curving alongside a home in the Paducah, KY area",
+    category: "Concrete",
+  },
+  {
     src: "/gallery/concrete-walkway.jpg",
     alt: "Concrete walkway and sidewalk poured near Paducah, KY",
     category: "Concrete",
@@ -70,6 +85,16 @@ export const photos: Photo[] = [
   {
     src: "/gallery/excavate-2.jpg",
     alt: "Land grading and dirt work by Four Rivers in Western Kentucky",
+    category: "Excavating",
+  },
+  {
+    src: "/gallery/excavate-3.jpg",
+    alt: "Compact track loader on a freshly graded site during excavation work near Paducah, KY",
+    category: "Excavating",
+  },
+  {
+    src: "/gallery/dirt.jpg",
+    alt: "Graded dirt and site preparation for a new pad in Western Kentucky",
     category: "Excavating",
   },
 ];

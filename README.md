@@ -1,36 +1,72 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Four Rivers Excavation & Concrete — Marketing Site
 
-## Getting Started
+Credibility- and SEO-grade marketing site for **Four Rivers Excavation & Concrete**, a
+family-owned concrete + excavating contractor in Paducah, KY. Built for lead-gen
+(Google Ads landing pages).
 
-First, run the development server:
+- **Stack:** Next.js 16 (App Router) · TypeScript · Tailwind v4 · Vercel
+- **Repo:** `2by4-analytics/2by4-fourrivers` (private) · **Vercel project:** `2by4-fourrivers`
+- **Production domain:** `fourriversconcrete.com` (alias the Vercel project to it)
+
+## Develop
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm run dev      # http://localhost:3000
+npm run build    # production build (static)
+npm run start    # serve the production build
+npm run lint
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Structure
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```
+app/
+  layout.tsx              html shell · fonts · GTM · site-wide LocalBusiness JSON-LD · Header/Footer/StickyCallBar
+  page.tsx                Home
+  concrete-finishing/     /concrete-finishing  (Service JSON-LD + FAQPage)
+  excavating/             /excavating          (Service JSON-LD + FAQPage)
+  gallery/                /gallery
+  contact/                /contact             (form + NAP + map)
+  thank-you/              /thank-you           (conversion landing — noindex, excluded from sitemap)
+  sitemap.ts · robots.ts · globals.css
+components/                Header, Footer, StickyCallBar, Hero, ServiceCard, CtaSection,
+                           GalleryGrid, TrustBar, Equipment, EstimateSection, GhlFormEmbed,
+                           Faq, Reviews, Gtm, Buttons
+lib/
+  business.ts             single source of truth for NAP + all business constants
+  schema.ts               JSON-LD generators (LocalBusiness / Service / FAQPage)
+  gallery.ts              photo manifest (alt text) — add photos here
+  integrations.ts         ALL third-party IDs (GTM / GHL / GBP) — see placeholders below
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+All NAP/business facts live in `lib/business.ts`. Don't hard-code the phone, address,
+etc. anywhere else — import from there.
 
-## Learn More
+## ⚠️ Placeholders to fill before / at launch
 
-To learn more about Next.js, take a look at the following resources:
+All live in **`lib/integrations.ts`** unless noted. Each is a clearly-marked `TODO`, not a
+silent fake — the site degrades gracefully until each is set.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+| What | Where | Until set… |
+|---|---|---|
+| **GTM container ID** (`GTM_ID`, currently `GTM-XXXXXXX`) | `lib/integrations.ts` | GTM does not load (no broken request). Set a real `GTM-XXXX` to activate. |
+| **GHL form ID** (`GHL_FORM_ID`, currently `REPLACE_WITH_GHL_FORM_ID`) | `lib/integrations.ts` | Forms show a phone/email fallback. Set the real ID to render the embed. See `ghl-setup.md`. |
+| **GHL post-submit redirect** | set **inside GoHighLevel**, not in code | Must point to `https://fourriversconcrete.com/thank-you?form_submitted=1` — `form_submitted=1` is the conversion trigger. |
+| **GBP place ID** (`GBP_PLACE_ID`, currently `null`) | `lib/integrations.ts` | Reviews section renders nothing (no fabricated reviews). Set the place ID + wire a widget in `components/Reviews.tsx`. |
+| **Shop geo-coordinates** | `lib/business.ts` (`geo`) | Uses approximate Cunningham, KY coords. Verify 2413 Lowes Rd against Google Maps. |
+| **Logo** | `public/logo.png` (transparent, header) · `public/logo.jpg` (white bg, OG/schema) · `app/icon.png` (favicon) | Done. Optional future: an SVG/vector for crisper favicon + print. |
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## SEO / schema
 
-## Deploy on Vercel
+- Site-wide `HomeAndConstructionBusiness` JSON-LD (geo-pinned to Cunningham/Paducah, KY to
+  disambiguate from the unrelated "Four Rivers Excavating LLC" in Ontario, OR).
+- Per-service `Service` nodes + `FAQPage` on `/concrete-finishing` and `/excavating`.
+- Per-page `metadata` (title/description/OG/Twitter), `sitemap.xml`, `robots.txt`.
+- **After deploy:** run Google's Rich Results test on `/` (LocalBusiness) and a service page (Service).
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Lighthouse (mobile)
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+`100 / 100 / 100 / 100` (perf / a11y / best-practices / SEO) under real network throttling.
+Note: Lighthouse's *default simulated* (Lantern) method scores perf ~94–95 on `localhost`
+due to known simulation pessimism — observed LCP is <100 ms. Verify on the deployed URL via
+PageSpeed Insights.

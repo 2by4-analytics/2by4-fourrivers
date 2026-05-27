@@ -1,26 +1,49 @@
 @import "tailwindcss";
 
+@theme {
+  /* Brand palette — derived from the logo (navy + gold + equipment yellow). */
+  --color-navy: #1f2a48; /* primary — header, footer, dark sections, headings */
+  --color-gold: #be9a2e; /* accent — borders, dividers, gold text on DARK (navy) */
+  --color-goldtext: #7a6116; /* AA-compliant darker gold for gold text on LIGHT bg */
+  --color-yellow: #f2b01e; /* CTA / highlight — buttons */
+  --color-ink: #181818; /* body text */
+  --color-sand: #f4f2ee; /* warm light-gray alt section bg */
+  --color-white: #ffffff;
+
+  /* Fonts — variables are injected by next/font in layout.tsx. */
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-heading: var(--font-oswald), var(--font-inter), ui-sans-serif, sans-serif;
+}
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  color-scheme: light;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--color-white);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* Condensed slab/sans for headings, matching the logo wordmark. */
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-heading);
+  letter-spacing: -0.01em;
+  text-wrap: balance;
+}
+
+/* Respect reduced-motion preferences. */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
 }

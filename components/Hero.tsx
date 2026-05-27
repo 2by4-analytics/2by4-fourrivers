@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { business } from "@/lib/business";
 import { CallButton, EstimateButton } from "./Buttons";
 
@@ -5,15 +6,20 @@ import { CallButton, EstimateButton } from "./Buttons";
  * Reusable hero: a polished navy/gold gradient panel. Text-first so the LCP is
  * the headline (fast on mobile, where Google Ads traffic lands) — the real
  * project photography lives in the service cards and gallery just below.
+ *
+ * Pass `image` (a /public path) to add a desktop-only photo that fades into the
+ * navy on the right half. It's decorative and deliberately NOT the LCP.
  */
 export default function Hero({
   eyebrow,
   title,
   subtitle,
+  image,
 }: {
   eyebrow?: string;
   title: string;
   subtitle?: string;
+  image?: string;
 }) {
   return (
     <section className="relative isolate overflow-hidden bg-navy text-white">
@@ -21,6 +27,22 @@ export default function Hero({
       <div className="absolute inset-0 -z-10 bg-gradient-to-br from-[#243152] via-navy to-[#10182b]" />
       <div className="absolute -right-24 -top-24 -z-10 h-96 w-96 rounded-full bg-gold/15 blur-3xl" />
       <div className="absolute inset-x-0 top-0 -z-10 h-1 bg-gradient-to-r from-gold via-yellow to-gold" />
+
+      {/* Desktop-only photo on the right half, masked to fade into the navy.
+          Sits above the gradient divs (-z-10) but below the text column.
+          Decorative + no priority, so the headline stays the LCP. */}
+      {image && (
+        <div
+          aria-hidden
+          className="absolute inset-y-0 right-0 -z-[5] hidden w-1/2 lg:block"
+          style={{
+            maskImage: "linear-gradient(to right, transparent 0%, black 55%)",
+            WebkitMaskImage: "linear-gradient(to right, transparent 0%, black 55%)",
+          }}
+        >
+          <Image src={image} alt="" fill sizes="50vw" className="object-cover" />
+        </div>
+      )}
 
       <div className="mx-auto max-w-7xl px-4 py-20 md:px-6 md:py-28 lg:py-32">
         <div className="max-w-2xl">

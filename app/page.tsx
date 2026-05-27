@@ -31,6 +31,7 @@ export default function Home() {
         eyebrow="Family-Owned · Serving Paducah & Western Kentucky"
         title="Concrete & Excavating Done Right in Paducah, KY"
         subtitle="We do what we say and show up when we say we will — quality work at a competitive price. Family-owned in Cunningham, KY since 2019, with 1,200+ projects completed across Western Kentucky."
+        image="/gallery/concrete-pool.jpg"
       />
 
       <TrustBar />

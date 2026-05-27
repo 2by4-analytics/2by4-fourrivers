@@ -74,6 +74,7 @@ export default function Excavating() {
         eyebrow="Serving Paducah & Western Kentucky"
         title="Excavating & Site Work in Paducah, KY"
         subtitle="Site prep, grading, trenching, land clearing, demolition, and ponds — done with our own equipment, on schedule, at a fair price."
+        image="/gallery/excavate-3.jpg"
       />
 
       <script type="application/ld+json" dangerouslySetInnerHTML={jsonLd(serviceSchema({

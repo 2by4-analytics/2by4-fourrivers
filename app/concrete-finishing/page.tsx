@@ -74,6 +74,7 @@ export default function ConcreteFinishing() {
         eyebrow="Serving Paducah & Western Kentucky"
         title="Concrete Contractor in Paducah, KY"
         subtitle="Driveways, patios, and shop slabs are our bread and butter — plus decorative concrete, foundations, and pool decks. Quality flatwork that holds up, at a fair price."
+        image="/gallery/concrete-patio.jpg"
       />
 
       <script type="application/ld+json" dangerouslySetInnerHTML={jsonLd(serviceSchema({

@@ -59,8 +59,8 @@ export const business = {
     facebook: "https://www.facebook.com/profile.php?id=100064041702758",
   },
 
-  /** Production domain (being purchased; alias the Vercel project to it). */
-  siteUrl: "https://fourriversconcrete.com",
+  /** Canonical production domain. www is primary; the apex and fourriversexcavating.com both 301 here. */
+  siteUrl: "https://www.fourriversconcrete.com",
 } as const;
 
 /** The four rivers converging at Paducah — regional brand hook. */

@@ -6,7 +6,7 @@ family-owned concrete + excavating contractor in Paducah, KY. Built for lead-gen
 
 - **Stack:** Next.js 16 (App Router) · TypeScript · Tailwind v4 · Vercel
 - **Repo:** `2by4-analytics/2by4-fourrivers` (private) · **Vercel project:** `2by4-fourrivers`
-- **Production domain:** `fourriversconcrete.com` (alias the Vercel project to it)
+- **Production domain:** `www.fourriversconcrete.com` (canonical; apex + `fourriversexcavating.com` 301 here)
 
 ## Develop
 
@@ -51,7 +51,7 @@ silent fake — the site degrades gracefully until each is set.
 |---|---|---|
 | **GTM container ID** (`GTM_ID`, currently `GTM-XXXXXXX`) | `lib/integrations.ts` | GTM does not load (no broken request). Set a real `GTM-XXXX` to activate. |
 | **GHL form ID** (`GHL_FORM_ID`, currently `REPLACE_WITH_GHL_FORM_ID`) | `lib/integrations.ts` | Forms show a phone/email fallback. Set the real ID to render the embed. See `ghl-setup.md`. |
-| **GHL post-submit redirect** | set **inside GoHighLevel**, not in code | Must point to `https://fourriversconcrete.com/thank-you?form_submitted=1` — `form_submitted=1` is the conversion trigger. |
+| **GHL post-submit redirect** | set **inside GoHighLevel**, not in code | Must point to `https://www.fourriversconcrete.com/thank-you?form_submitted=1` — `form_submitted=1` is the conversion trigger. |
 | **GBP place ID** (`GBP_PLACE_ID`, currently `null`) | `lib/integrations.ts` | Reviews section renders nothing (no fabricated reviews). Set the place ID + wire a widget in `components/Reviews.tsx`. |
 | **Shop geo-coordinates** | `lib/business.ts` (`geo`) | Uses approximate Cunningham, KY coords. Verify 2413 Lowes Rd against Google Maps. |
 | **Logo** | `public/logo.png` (transparent, header) · `public/logo.jpg` (white bg, OG/schema) · `app/icon.png` (favicon) | Done. Optional future: an SVG/vector for crisper favicon + print. |

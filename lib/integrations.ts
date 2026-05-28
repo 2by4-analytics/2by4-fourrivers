@@ -11,7 +11,7 @@ export const GTM_ID: string = "GTM-XXXXXXX";
 
 // GoHighLevel lead form ID (clone of Burnett's pattern). See ghl-setup.md.
 // REMINDER: the form's post-submit redirect must be set INSIDE GHL to
-// https://fourriversconcrete.com/thank-you?form_submitted=1 (the conversion trigger).
+// https://www.fourriversconcrete.com/thank-you?form_submitted=1 (the conversion trigger).
 export const GHL_FORM_ID: string = "xFlmCantNbgltf65Kf5D";
 
 // TODO(GBP): set the Google Business Profile place ID to enable the reviews widget.

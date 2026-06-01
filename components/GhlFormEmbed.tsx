@@ -1,4 +1,5 @@
 import Script from "next/script";
+import Link from "next/link";
 import { GHL_FORM_ID, ghlFormConfigured } from "@/lib/integrations";
 import { business } from "@/lib/business";
 import { CallButton } from "./Buttons";
@@ -64,6 +65,13 @@ export default function GhlFormEmbed({
         data-form-id={formId}
         title={title}
       />
+      <p className="mt-3 text-xs text-ink/70">
+        By submitting this form, you agree to our{" "}
+        <Link href="/privacy" className="underline hover:text-yellow">
+          Privacy Policy
+        </Link>
+        .
+      </p>
       <Script src="https://link.msgsndr.com/js/form_embed.js" strategy="afterInteractive" />
     </>
   );

@@ -74,7 +74,11 @@ export default function Footer() {
           <p>
             © {year} {business.legalName}. Licensed &amp; insured · workers&apos; comp carried.
           </p>
-          <p>Concrete &amp; excavating contractor · {business.address.city}, Carlisle County, KY</p>
+          <div className="flex flex-wrap items-center gap-2">
+            <Link href="/privacy" className="hover:text-yellow">Privacy</Link>
+            <span aria-hidden>·</span>
+            <span>Concrete &amp; excavating contractor · {business.address.city}, Carlisle County, KY</span>
+          </div>
         </div>
       </div>
     </footer>

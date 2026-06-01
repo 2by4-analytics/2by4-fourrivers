@@ -5,9 +5,9 @@
  * clearly-marked stub form, no reviews widget).
  */
 
-// TODO(GTM): replace with the real Google Tag Manager container ID once created.
-// Container not yet created. While this is the placeholder value, GTM does not load.
-export const GTM_ID: string = "GTM-XXXXXXX";
+// Google Tag Manager container ID. Drives the head script + noscript iframe in
+// components/Gtm.tsx — flipping this value is the only switch needed to enable GTM.
+export const GTM_ID: string = "GTM-PF5SMCQ2";
 
 // GoHighLevel lead form ID (clone of Burnett's pattern). See ghl-setup.md.
 // REMINDER: the form's post-submit redirect must be set INSIDE GHL to

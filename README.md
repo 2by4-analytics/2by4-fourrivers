@@ -52,7 +52,7 @@ silent fake — the site degrades gracefully until each is set.
 | **GTM container ID** (`GTM_ID`, currently `GTM-XXXXXXX`) | `lib/integrations.ts` | GTM does not load (no broken request). Set a real `GTM-XXXX` to activate. |
 | **GHL form ID** (`GHL_FORM_ID`, currently `REPLACE_WITH_GHL_FORM_ID`) | `lib/integrations.ts` | Forms show a phone/email fallback. Set the real ID to render the embed. See `ghl-setup.md`. |
 | **GHL post-submit redirect** | set **inside GoHighLevel**, not in code | Must point to `https://www.fourriversconcrete.com/thank-you?form_submitted=1` — `form_submitted=1` is the conversion trigger. |
-| **GBP place ID** (`GBP_PLACE_ID`, currently `null`) | `lib/integrations.ts` | Reviews section renders nothing (no fabricated reviews). Set the place ID + wire a widget in `components/Reviews.tsx`. |
+| **GBP identifier** (`GBP_PLACE_ID` — CID set) | `lib/integrations.ts` | CID configured; the reviews widget itself isn't wired yet. When ready, render via Places API (needs CID→Place ID conversion + API key) or a third-party widget that accepts CID directly (Featurable / EmbedSocial). |
 | **Shop geo-coordinates** | `lib/business.ts` (`geo`) | Uses approximate Cunningham, KY coords. Verify 2413 Lowes Rd against Google Maps. |
 | **Logo** | `public/logo.png` (transparent, header) · `public/logo.jpg` (white bg, OG/schema) · `app/icon.png` (favicon) | Done. Optional future: an SVG/vector for crisper favicon + print. |
 

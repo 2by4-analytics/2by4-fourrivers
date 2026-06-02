@@ -14,9 +14,13 @@ export const GTM_ID: string = "GTM-PF5SMCQ2";
 // https://www.fourriversconcrete.com/thank-you?form_submitted=1 (the conversion trigger).
 export const GHL_FORM_ID: string = "xFlmCantNbgltf65Kf5D";
 
-// TODO(GBP): set the Google Business Profile place ID to enable the reviews widget.
-// GBP not confirmed yet — while this is null the reviews section renders nothing.
-export const GBP_PLACE_ID: string | null = null;
+// Google Business Profile identifier for Four Rivers. Note the format:
+// this is the **CID** (Google's decimal Customer ID), not a Places-API Place ID
+// in the `ChIJ...` form. Same listing — resolves at https://maps.google.com/?cid=<id>.
+// When we wire the live reviews widget we'll either (a) convert this to a Place ID
+// via the Places API for an official server-side fetch, or (b) hand it to a
+// third-party widget (Featurable / EmbedSocial) that accepts CID directly.
+export const GBP_PLACE_ID: string | null = "4347994335052241843";
 
 /** True only when a real (non-placeholder) GTM container is configured. */
 export const gtmEnabled = GTM_ID !== "GTM-XXXXXXX";

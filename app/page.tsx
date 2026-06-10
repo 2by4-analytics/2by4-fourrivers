@@ -8,6 +8,7 @@ import Reviews from "@/components/Reviews";
 import { EstimateButton } from "@/components/Buttons";
 import { business, rivers } from "@/lib/business";
 import { homePreview } from "@/lib/gallery";
+import { GHL_SHORT_FORM_ID } from "@/lib/integrations";
 
 const whyPoints = [
   {
@@ -32,6 +33,7 @@ export default function Home() {
         title="Concrete & Excavating Done Right in Paducah, KY"
         subtitle="We do what we say and show up when we say we will — quality work at a competitive price. Family-owned in Cunningham, KY since 2019, with 1,200+ projects completed across Western Kentucky."
         image="/gallery/concrete-pool.jpg"
+        formId={GHL_SHORT_FORM_ID}
       />
 
       <TrustBar />

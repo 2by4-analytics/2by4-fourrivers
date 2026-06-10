@@ -14,6 +14,13 @@ export const GTM_ID: string = "GTM-PF5SMCQ2";
 // https://www.fourriversconcrete.com/thank-you?form_submitted=1 (the conversion trigger).
 export const GHL_FORM_ID: string = "xFlmCantNbgltf65Kf5D";
 
+// Shorter GHL lead form ("Four Rivers Short Form") used in the home-page hero —
+// fewer fields = lower friction for cold ad traffic. The full GHL_FORM_ID form
+// still backs the /contact and end-of-page estimate sections.
+// REMINDER: this form's post-submit redirect must ALSO be set INSIDE GHL to
+// https://www.fourriversconcrete.com/thank-you?form_submitted=1 (the conversion trigger).
+export const GHL_SHORT_FORM_ID: string = "eDwE0j4xPen0DdIMv20V";
+
 // Google Business Profile identifier for Four Rivers. Note the format:
 // this is the **CID** (Google's decimal Customer ID), not a Places-API Place ID
 // in the `ChIJ...` form. Same listing — resolves at https://maps.google.com/?cid=<id>.

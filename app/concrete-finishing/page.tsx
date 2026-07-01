@@ -4,6 +4,7 @@ import Equipment from "@/components/Equipment";
 import Faq from "@/components/Faq";
 import EstimateSection from "@/components/EstimateSection";
 import { business } from "@/lib/business";
+import { GHL_SHORT_FORM_ID } from "@/lib/integrations";
 import { serviceSchema, jsonLd, type FaqItem } from "@/lib/schema";
 
 const url = `${business.siteUrl}/concrete-finishing`;
@@ -75,6 +76,7 @@ export default function ConcreteFinishing() {
         title="Concrete Contractor in Paducah, KY"
         subtitle="Driveways, patios, and shop slabs are our bread and butter — plus decorative concrete, foundations, and pool decks. Quality flatwork that holds up, at a fair price."
         image="/gallery/concrete-patio.jpg"
+        formId={GHL_SHORT_FORM_ID}
       />
 
       <script type="application/ld+json" dangerouslySetInnerHTML={jsonLd(serviceSchema({

@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import Hero from "@/components/Hero";
 import Equipment from "@/components/Equipment";
 import Faq from "@/components/Faq";
-import EstimateSection from "@/components/EstimateSection";
 import { business } from "@/lib/business";
 import { GHL_SHORT_FORM_ID } from "@/lib/integrations";
 import { serviceSchema, jsonLd, type FaqItem } from "@/lib/schema";
@@ -144,11 +143,6 @@ export default function ConcreteFinishing() {
       <section className="mx-auto max-w-3xl px-4 py-16 md:px-6 md:py-20">
         <Faq items={faqs} heading="Concrete FAQs" />
       </section>
-
-      <EstimateSection
-        heading="Ready for new concrete?"
-        body="Get a free on-site estimate for your driveway, patio, slab, or any concrete project. We'll give you a straight answer and a competitive quote — and we'll show up when we say we will."
-      />
     </>
   );
 }

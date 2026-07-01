@@ -66,7 +66,7 @@ export default function Hero({
             {subtitle && <p className="mt-5 max-w-xl text-lg text-white/85 md:text-xl">{subtitle}</p>}
 
             <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
-              <EstimateButton>Get a Free On-Site Estimate</EstimateButton>
+              <EstimateButton href={formId ? "#estimate" : "/contact"}>Get a Free On-Site Estimate</EstimateButton>
               <CallButton variant="outline" />
             </div>
             <p className="mt-4 text-sm text-white/70">
@@ -75,7 +75,7 @@ export default function Hero({
           </div>
 
           {formId && (
-            <div className="rounded-xl border border-gold/40 bg-white p-6 text-ink shadow-2xl ring-1 ring-black/5 md:p-7">
+            <div id="estimate" className="scroll-mt-24 rounded-xl border border-gold/40 bg-white p-6 text-ink shadow-2xl ring-1 ring-black/5 md:p-7">
               <p className="font-heading text-sm font-semibold uppercase tracking-widest text-goldtext">
                 Free Estimate
               </p>
